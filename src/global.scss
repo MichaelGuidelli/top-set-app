@@ -35,3 +35,20 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+// MY IMPORTS
+@import "./color.scss";
+
+ion-content,
+ion-item,
+ion-tab-bar {
+  --background: #{$background-color-dark-blue};
+}
+
+ion-item {
+  margin: 20px 0 20px 0;
+}
+
+ion-button {
+  margin: 20px 0 20px 0;
+}

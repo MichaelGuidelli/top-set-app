@@ -1,8 +1,8 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" style="background: red !important">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large" style="margin-top: 50px">Top Set</ion-title>
-    </ion-toolbar>
+    <ion-title size="large" style="margin-top: 50px"
+      >Calculate Top Set</ion-title
+    >
   </ion-header>
   <form [formGroup]="formTopSet" (submit)="calculateTopSet()">
     <ion-item>
@@ -51,15 +51,18 @@
 
     <ion-button
       color="danger"
-      expand="full"
+      expand="block"
+      shape="round"
+      fill="outline"
       type="reset"
       *ngIf="formTopSet.valid"
       (click)="topSetReset()"
       >Reset</ion-button
     >
     <ion-button
-      color="primary"
-      expand="full"
+      expand="block"
+      shape="round"
+      fill="outline"
       type="submit"
       [disabled]="formTopSet.invalid"
       >Calculate</ion-button
@@ -73,5 +76,5 @@
   >
     <h1>Your Top Set</h1>
     <h1>{{topSet}}</h1>
-  </ion-text> </ion-content
->2
+  </ion-text>
+</ion-content>

@@ -1,8 +1,6 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large" style="margin-top: 50px">Add new PRs</ion-title>
-    </ion-toolbar>
+    <ion-title size="large" style="margin-top: 50px">Add new PRs</ion-title>
   </ion-header>
 
   <ion-item>
@@ -46,7 +44,14 @@
       <div slot="label">Enter New Deadlift PR</div>
     </ion-input>
   </ion-item>
-  <ion-button color="primary" expand="full" (click)="saveNewPRs()"
+  <ion-button
+    color="primary"
+    expand="block"
+    shape="round"
+    fill="outline"
+    type="submit"
+    expand="full"
+    (click)="saveNewPRs()"
     >{{buttonContent}}</ion-button
   >
 </ion-content>

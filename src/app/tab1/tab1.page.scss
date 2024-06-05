@@ -1,0 +1,8 @@
+@import "../../color.scss";
+
+.button-calculate {
+  width: 80%;
+  color: #{$white};
+  border: 1px solid #{$white};
+  border-radius: 100px;
+}
