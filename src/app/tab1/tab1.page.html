@@ -1,0 +1,77 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large" style="margin-top: 50px">Top Set</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <form [formGroup]="formTopSet" (submit)="calculateTopSet()">
+    <ion-item>
+      <ion-input
+        labelPlacement="floating"
+        type="number"
+        formControlName="percentage"
+      >
+        <div slot="label">
+          Enter Percentage
+          <ion-text
+            color="danger"
+            *ngIf="formTopSet.controls['percentage'].errors?.['required']"
+            >(Required)</ion-text
+          >
+          <ion-text
+            color="danger"
+            *ngIf="formTopSet.controls['percentage'].errors?.['max']"
+            >(Cannot enter a number bigger than 100)</ion-text
+          >
+        </div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select formControlName="personalRecord" label-placement="floating">
+        <div slot="label">
+          Enter Personal Record
+          <ion-text
+            color="danger"
+            *ngIf="formTopSet.controls['personalRecord'].errors?.['required']"
+            >(Required)</ion-text
+          >
+        </div>
+        <ion-select-option [value]="squatPR"
+          >Squat-{{squatPR}}kg</ion-select-option
+        >
+        <ion-select-option [value]="benchPR"
+          >Bench-{{benchPR}}kg</ion-select-option
+        >
+        <ion-select-option [value]="deadliftPR"
+          >Deadlift-{{deadliftPR}}kg</ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+
+    <ion-button
+      color="danger"
+      expand="full"
+      type="reset"
+      *ngIf="formTopSet.valid"
+      (click)="topSetReset()"
+      >Reset</ion-button
+    >
+    <ion-button
+      color="primary"
+      expand="full"
+      type="submit"
+      [disabled]="formTopSet.invalid"
+      >Calculate</ion-button
+    >
+  </form>
+
+  <ion-text
+    class="ion-text-center"
+    style="color: white"
+    [hidden]="!topSetCalculated"
+  >
+    <h1>Your Top Set</h1>
+    <h1>{{topSet}}</h1>
+  </ion-text> </ion-content
+>2

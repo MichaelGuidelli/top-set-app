@@ -1,0 +1,52 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large" style="margin-top: 50px">Add new PRs</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-item>
+    <ion-input
+      labelPlacement="floating"
+      type="number"
+      [disabled]="!isButtonToggle"
+      [(ngModel)]="squatPR"
+      [value]="squatPR"
+      maxlength="3"
+      (keyup)="onKeyup($event)"
+    >
+      <div slot="label">Enter New Squat PR</div>
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input
+      labelPlacement="floating"
+      type="number"
+      [(ngModel)]="benchPR"
+      [disabled]="!isButtonToggle"
+      [value]="benchPR"
+      maxlength="3"
+      (keyup)="onKeyup($event)"
+    >
+      <div slot="label">Enter New Bench PR</div>
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input
+      labelPlacement="floating"
+      type="number"
+      [disabled]="!isButtonToggle"
+      [(ngModel)]="deadliftPR"
+      [value]="deadliftPR"
+      maxlength="3"
+      (keyup)="onKeyup($event)"
+    >
+      <div slot="label">Enter New Deadlift PR</div>
+    </ion-input>
+  </ion-item>
+  <ion-button color="primary" expand="full" (click)="saveNewPRs()"
+    >{{buttonContent}}</ion-button
+  >
+</ion-content>

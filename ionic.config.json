@@ -1,0 +1,7 @@
+{
+  "name": "top-set-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
