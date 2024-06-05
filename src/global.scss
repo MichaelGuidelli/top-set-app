@@ -51,4 +51,28 @@ ion-item {
 
 ion-button {
   margin: 20px 0 20px 0;
+  width: 90%;
+  background: none !important;
+  background-color: none !important;
+  box-shadow: none !important;
+}
+
+ion-tab-button {
+  font-size: 10px;
+  --background-focused: #{$white};
+  --color-selected: #{$white};
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.button-white {
+  background-color: transparent !important;
+  border: 1px solid #{$white};
+  border-radius: 100px;
+  color: #{$white};
 }

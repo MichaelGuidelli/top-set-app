@@ -23,6 +23,12 @@
             *ngIf="formTopSet.controls['percentage'].errors?.['max']"
             >(Cannot enter a number bigger than 100)</ion-text
           >
+
+          <ion-text
+            color="danger"
+            *ngIf="formTopSet.controls['percentage'].errors?.['pattern']"
+            >(Just numbers allowed)
+          </ion-text>
         </div>
       </ion-input>
     </ion-item>
@@ -49,24 +55,25 @@
       </ion-select>
     </ion-item>
 
-    <ion-button
-      color="danger"
-      expand="block"
-      shape="round"
-      fill="outline"
-      type="reset"
-      *ngIf="formTopSet.valid"
-      (click)="topSetReset()"
-      >Reset</ion-button
-    >
-    <ion-button
-      expand="block"
-      shape="round"
-      fill="outline"
-      type="submit"
-      [disabled]="formTopSet.invalid"
-      >Calculate</ion-button
-    >
+    <div class="button-container">
+      <ion-button
+        color="danger"
+        expand="block"
+        shape="round"
+        fill="outline"
+        type="reset"
+        *ngIf="formTopSet.valid"
+        (click)="topSetReset()"
+        >Reset</ion-button
+      >
+      <ion-button
+        fill="clear"
+        type="submit"
+        class="button-white"
+        [disabled]="formTopSet.invalid"
+        >Calculate</ion-button
+      >
+    </div>
   </form>
 
   <ion-text

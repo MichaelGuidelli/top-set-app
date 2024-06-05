@@ -44,14 +44,10 @@
       <div slot="label">Enter New Deadlift PR</div>
     </ion-input>
   </ion-item>
-  <ion-button
-    color="primary"
-    expand="block"
-    shape="round"
-    fill="outline"
-    type="submit"
-    expand="full"
-    (click)="saveNewPRs()"
-    >{{buttonContent}}</ion-button
-  >
+
+  <div class="button-container">
+    <ion-button fill="clear" class="button-white" (click)="saveNewPRs()"
+      >{{buttonContent}}</ion-button
+    >
+  </div>
 </ion-content>

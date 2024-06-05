@@ -16,7 +16,6 @@ export class Tab1Page implements OnInit, OnDestroy {
   personalRecord!: number;
   formTopSet: FormGroup;
   topSetCalculated: boolean = false;
-  rows = new Array(5);
 
   squatPR!: number;
   benchPR!: number;
@@ -25,7 +24,14 @@ export class Tab1Page implements OnInit, OnDestroy {
   constructor(private fb: FormBuilder) {
     this.storageService.init();
     this.formTopSet = this.fb.group({
-      percentage: ['', [Validators.required, Validators.max(100)]],
+      percentage: [
+        '',
+        [
+          Validators.required,
+          Validators.max(100),
+          Validators.pattern('^[0-9]*$'),
+        ],
+      ],
       personalRecord: ['', [Validators.required]],
     });
   }
