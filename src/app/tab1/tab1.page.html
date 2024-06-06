@@ -1,8 +1,6 @@
-<ion-content [fullscreen]="true" style="background: red !important">
+<ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-title size="large" style="margin-top: 50px"
-      >Calculate Top Set</ion-title
-    >
+    <ion-title size="large">Calculate Top Set</ion-title>
   </ion-header>
   <form [formGroup]="formTopSet" (submit)="calculateTopSet()">
     <ion-item>
@@ -76,11 +74,7 @@
     </div>
   </form>
 
-  <ion-text
-    class="ion-text-center"
-    style="color: white"
-    [hidden]="!topSetCalculated"
-  >
+  <ion-text class="ion-text-center" color="white" [hidden]="!topSetCalculated">
     <h1>Your Top Set</h1>
     <h1>{{topSet + "kg"}}</h1>
   </ion-text>

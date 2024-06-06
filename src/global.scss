@@ -45,6 +45,10 @@ ion-tab-bar {
   --background: #{$background-color-dark-blue};
 }
 
+ion-title {
+  margin: 50px 0 0 0;
+}
+
 ion-item {
   margin: 20px 0 20px 0;
 }
