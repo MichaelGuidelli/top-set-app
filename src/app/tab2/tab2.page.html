@@ -50,6 +50,10 @@
       >{{buttonContent}}</ion-button
     >
   </div>
+
+  <ion-text class="ion-text-center">
+    <h4 *ngIf="showTotal">Your Total: {{prsTotal}}kg</h4>
+  </ion-text>
 </ion-content>
 
 <ion-footer>

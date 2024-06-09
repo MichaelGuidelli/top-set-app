@@ -14,6 +14,8 @@ export class Tab2Page implements OnInit {
   squatPR!: number;
   benchPR!: number;
   deadliftPR!: number;
+  prsTotal!: number;
+  showTotal: boolean = false;
 
   isButtonToggle: boolean = false;
   buttonContent: string = 'Update PRs';
@@ -41,6 +43,8 @@ export class Tab2Page implements OnInit {
     this.squatPR = squatPRFromStorage;
     this.benchPR = benchPRFromStorage;
     this.deadliftPR = deadliftPRFromStorage;
+
+    this.calculateTotal();
   }
 
   constructor(private storageService: StorageService) {}
@@ -52,6 +56,19 @@ export class Tab2Page implements OnInit {
     await this.storageService.setItem('squatPRAdded', this.squatPR);
     await this.storageService.setItem('benchPRAdded', this.benchPR);
     await this.storageService.setItem('deadliftPRAdded', this.deadliftPR);
+
+    this.calculateTotal();
+  }
+
+  calculateTotal() {
+    if (
+      [this.squatPR, this.benchPR, this.deadliftPR].some(
+        (pr) => pr !== 0 && pr !== undefined && pr !== null
+      )
+    ) {
+      this.showTotal = !this.showTotal;
+      this.prsTotal = this.squatPR + (this.benchPR + this.deadliftPR);
+    }
   }
 
   onKeyup(event: any) {
