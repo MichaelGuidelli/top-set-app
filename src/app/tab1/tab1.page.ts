@@ -16,10 +16,12 @@ export class Tab1Page implements OnInit, OnDestroy {
   personalRecord!: number;
   formTopSet: FormGroup;
   topSetCalculated: boolean = false;
+  customWeight: boolean = true;
 
   squatPR!: number;
   benchPR!: number;
   deadliftPR!: number;
+  buttonContent: string = 'Custom Weight';
 
   constructor(private fb: FormBuilder) {
     this.storageService.init();
@@ -67,5 +69,11 @@ export class Tab1Page implements OnInit, OnDestroy {
 
   topSetReset() {
     this.topSetCalculated = false;
+  }
+
+  toggleSelect() {
+    this.customWeight = !this.customWeight;
+
+    this.buttonContent = this.customWeight ? 'Custom Weight' : 'Your PRs';
   }
 }
