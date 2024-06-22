@@ -16,7 +16,7 @@ export class Tab1Page implements OnInit, OnDestroy {
   personalRecord!: number;
   formTopSet: FormGroup;
   topSetCalculated: boolean = false;
-  customWeight: boolean = true;
+  customWeightToggle: boolean = true;
 
   squatPR!: number;
   benchPR!: number;
@@ -41,9 +41,11 @@ export class Tab1Page implements OnInit, OnDestroy {
   async ngOnInit(): Promise<void> {
     await this.loadPersonalRecords();
   }
+
   ngOnDestroy(): void {
     this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
+
   async loadPersonalRecords(): Promise<void> {
     this.subscriptions.push(
       this.storageService.squatPR$.subscribe((value) => {
@@ -59,21 +61,34 @@ export class Tab1Page implements OnInit, OnDestroy {
   }
 
   calculateTopSet() {
+    this.customWeightToggle
+      ? this.calculateTopSetPR()
+      : this.calculateTopSetCustomWeight();
+  }
+
+  calculateTopSetPR() {
     const percentage = Number(this.formTopSet.get('percentage')?.value);
     const personalRecord = Number(this.formTopSet.get('personalRecord')?.value);
-    const recordName = this.formTopSet.get('personalRecord')?.value;
-    console.log(recordName);
     this.topSetCalculated = true;
     this.topSet = (personalRecord / 100) * percentage;
   }
 
+  calculateTopSetCustomWeight() {
+    const percentage = Number(this.formTopSet.get('percentage')?.value);
+    const personalRecord = Number(this.formTopSet.get('personalRecord')?.value);
+    this.topSetCalculated = true;
+    this.topSet = (personalRecord / 100) * percentage;
+    this.topSet = personalRecord - this.topSet;
+  }
+
   topSetReset() {
     this.topSetCalculated = false;
+    this.customWeightToggle = !this.customWeightToggle;
   }
 
   toggleSelect() {
-    this.customWeight = !this.customWeight;
+    this.customWeightToggle = !this.customWeightToggle;
 
-    this.buttonContent = this.customWeight ? 'Custom Weight' : 'Your PRs';
+    this.buttonContent = this.customWeightToggle ? 'Custom Weight' : 'Your PRs';
   }
 }

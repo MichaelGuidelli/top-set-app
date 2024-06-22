@@ -31,29 +31,7 @@
       </ion-input>
     </ion-item>
 
-    <!-- <ion-item>
-      <ion-select formControlName="personalRecord" label-placement="floating">
-        <div slot="label">
-          Enter Personal Record
-          <ion-text
-            color="danger"
-            *ngIf="formTopSet.controls['personalRecord'].errors?.['required']"
-            >(Required)</ion-text
-          >
-        </div>
-        <ion-select-option [value]="squatPR"
-          >Squat-{{squatPR}}kg</ion-select-option
-        >
-        <ion-select-option [value]="benchPR"
-          >Bench-{{benchPR}}kg</ion-select-option
-        >
-        <ion-select-option [value]="deadliftPR"
-          >Deadlift-{{deadliftPR}}kg</ion-select-option
-        >
-      </ion-select>
-    </ion-item> -->
-
-    <ion-item *ngIf="customWeight">
+    <ion-item *ngIf="customWeightToggle">
       <ion-select formControlName="personalRecord" label-placement="floating">
         <div slot="label">
           Enter Personal Record
@@ -74,11 +52,13 @@
         >
       </ion-select>
       <ion-buttons slot="end">
-        <ion-button (click)="toggleSelect()">{{buttonContent}}</ion-button>
+        <ion-button style="color: white" (click)="toggleSelect()"
+          >{{buttonContent}}</ion-button
+        >
       </ion-buttons>
     </ion-item>
 
-    <ion-item *ngIf="!customWeight">
+    <ion-item *ngIf="!customWeightToggle">
       <ion-input
         labelPlacement="floating"
         type="number"
@@ -95,7 +75,9 @@
       </ion-input>
 
       <ion-buttons slot="end">
-        <ion-button (click)="toggleSelect()">{{buttonContent}}</ion-button>
+        <ion-button style="color: white" (click)="toggleSelect()"
+          >{{buttonContent}}</ion-button
+        >
       </ion-buttons>
     </ion-item>
 
@@ -120,7 +102,7 @@
     </div>
   </form>
 
-  <ion-text class="ion-text-center" color="white" [hidden]="!topSetCalculated">
+  <ion-text class="ion-text-center" color="white" *ngIf="topSetCalculated">
     <h4>Your Top Set: {{topSet + "kg"}}</h4>
   </ion-text>
 </ion-content>
