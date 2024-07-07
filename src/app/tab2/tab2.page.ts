@@ -70,11 +70,4 @@ export class Tab2Page implements OnInit {
       this.prsTotal = this.squatPR + (this.benchPR + this.deadliftPR);
     }
   }
-
-  onKeyup(event: any) {
-    const enteredValue = event.target.value;
-    if (enteredValue.length > 3) {
-      event.target.value = enteredValue.substring(0, 3);
-    }
-  }
 }

@@ -10,8 +10,6 @@
       [disabled]="!isButtonToggle"
       [(ngModel)]="squatPR"
       [value]="squatPR"
-      maxlength="3"
-      (keyup)="onKeyup($event)"
     >
       <div slot="label">Enter New Squat PR</div>
     </ion-input>
@@ -24,8 +22,6 @@
       [(ngModel)]="benchPR"
       [disabled]="!isButtonToggle"
       [value]="benchPR"
-      maxlength="3"
-      (keyup)="onKeyup($event)"
     >
       <div slot="label">Enter New Bench PR</div>
     </ion-input>
@@ -38,8 +34,6 @@
       [disabled]="!isButtonToggle"
       [(ngModel)]="deadliftPR"
       [value]="deadliftPR"
-      maxlength="3"
-      (keyup)="onKeyup($event)"
     >
       <div slot="label">Enter New Deadlift PR</div>
     </ion-input>
